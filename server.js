@@ -8,12 +8,16 @@ const app = express();
 
 app.set('port', (process.env.PORT || 8080));
 
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-    res.end('index.html');
+    res.render('index');
 });
 
 // redirect user to original url
-app.get('/short/:url', (req, res) => {
+app.get('/:url', (req, res) => {
+    //const parsedUrl = url.parse(req.url, true);
+
     // using promises to wait till query is done
     var p = getOriginalUrl(req.params.url);
 	p.then((originalUrl) => res.redirect(originalUrl));
