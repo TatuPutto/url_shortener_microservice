@@ -30,7 +30,7 @@ app.get('/shorten/*', (req, res) => {
     var output;
     // check if passed url is valid (http or https)
     if(validUrl.isWebUri(originalUrl)) {
-        const shortUrlId = shortenUrl(parsedUrl);
+        const shortUrlId = generateShortUrl();
         const shortUrl = 'https://secret-meadow-30442.herokuapp.com/' + shortUrlId;
         output = {original_url: originalUrl, short_url: shortUrl};
 
@@ -43,10 +43,9 @@ app.get('/shorten/*', (req, res) => {
     res.end(JSON.stringify(output));
 });
 
-
 app.listen(app.get('port'));
 
-function shortenUrl(url) {
+function generateShortUrl() {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var shortUrl = '';
 

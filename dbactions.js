@@ -1,6 +1,6 @@
 const mongo = require('mongodb').MongoClient;
 
-const mongoUrl = process.env.MONGOLAB_URI_EXT;
+const mongoUrl = process.env.MONGOLAB_URI;
 
 // fetch original url address from database
 function getOriginalUrl(id) {
@@ -34,7 +34,7 @@ function insertNewShortenedUrl(urlId, shortUrl, originalUrl) {
             original_url: originalUrl,
             short_url: shortUrl
         }, (err) => {
-            if(err) throw new Error(err)
+            if(err) throw new Error(err);
         });
         db.close();
    });
