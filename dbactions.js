@@ -1,6 +1,6 @@
 const mongo = require('mongodb').MongoClient;
 
-const mongoUrl = process.env.MONGOLAB_URI;
+const mongoUrl = process.env.MONGOLAB_URI_EXT;
 
 // fetch original url address from database
 function getOriginalUrl(id) {
@@ -26,7 +26,6 @@ function getOriginalUrl(id) {
 // insert new entity into database {id, original_url, short_url}
 function insertNewShortenedUrl(urlId, shortUrl, originalUrl) {
     mongo.connect(mongoUrl, (err, db) => {
-        console.log('We are in!' + db);
         if(err) throw new Error(err);
         const collection = db.collection('shortened_urls');
 
