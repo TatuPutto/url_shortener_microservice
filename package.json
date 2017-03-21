@@ -1,0 +1,20 @@
+{
+  "name": "url_shortener_microservice",
+  "version": "1.0.0",
+  "description": "fcc-assignment: url shortener microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TatuPutto/url_shortener_microservice"
+  },
+  "author": "Tatu Putto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.25",
+    "valid-url": "^1.0.9"
+  }
+}
