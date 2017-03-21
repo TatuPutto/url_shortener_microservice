@@ -27,16 +27,16 @@ app.get('/:url', (req, res) => {
 // shorten url
 app.get('/shorten/*', (req, res) => {
     const parsedUrl = url.parse(req.url, true);
-    const urlToShorten = parsedUrl.pathname.substring(9);
+    const originalUrl = parsedUrl.pathname.substring(9);
 
     var output;
     // check if passed url is valid (http or https)
-    if(validUrl.isWebUri(urlToShorten)) {
+    if(validUrl.isWebUri(originalUrl)) {
         const shortUrlId = shortenUrl(parsedUrl);
-        const shortUrl = 'localhost:8080/short/' + shortUrlId;
-        output = {original_url: urlToShorten, short_url: shortUrl};
+        const shortUrl = 'https://secret-meadow-30442.herokuapp.com/' + shortUrlId;
+        output = {original_url: originalUrl, short_url: shortUrl};
 
-        insertUrl(shortUrlId, urlToShorten);
+        insertUrl(shortUrlId, shortUrl, originalUrl);
     } else {
         output = {error: 'Invalid URL address'};
     }
