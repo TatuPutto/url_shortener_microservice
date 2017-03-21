@@ -26,6 +26,7 @@ function getOriginalUrl(id) {
 // insert new entity into database {id, original_url, short_url}
 function insertNewShortenedUrl(urlId, shortUrl, originalUrl) {
     mongo.connect(mongoUrl, (err, db) => {
+        console.log('We are in!' db);
         if(err) throw new Error(err);
         const collection = db.collection('shortened_urls');
 
