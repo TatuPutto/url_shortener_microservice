@@ -19,7 +19,7 @@ app.get('/:url', (req, res) => {
     // using promises to wait till query is done
     var p = getOriginalUrl(req.params.url);
 	p.then((originalUrl) => res.redirect(originalUrl));
-    p.catch((err) => res.end(JSON.stringify('Couldn\'t find passed URL from database.');
+    p.catch((err) => res.end('Couldn\'t find passed URL from database.'));
 });
 
 // shorten url
