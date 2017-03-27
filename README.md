@@ -1,5 +1,5 @@
 #URL Shortener Microservice
-My solution to FreeCodeCamp assignment URL Shortener Microservice. Simple Node.js app with MongoDB. Shortens passed URL address (if valid) and adds original and shortened URL to db. When user visits shortened URL he/she gets redirected to the original link. 
+My solution to FreeCodeCamp assignment URL Shortener Microservice. Simple Node.js app with MongoDB. Shortens passed URL address (if valid) and adds original and shortened URL to db. Redirects user to original link when shortened URL is visited.
 
 ##User stories
 1. I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
